@@ -1,14 +1,13 @@
 from http import client
+import requests
 
 def main():
-    cxn = client.HTTPConnection('https://jsonplaceholder.typicode.com/', 443)
-    cxn.request('HEAD', '/')
-    response = cxn.getresponse()
+    response = requests.head('https://jsonplaceholder.typicode.com/')
 
-    if response.status == 200:
-        print('Response:',response.status, '🎉🎉🎉', '\n')
+    if response.status_code == 200:
+        print('Response:',response.status_code, '🎉🎉🎉', '\n')
     else:
-        print('Uh Oh, got',response.status)
+        print('Uh Oh, got',response.status_code)
 
     print(response.headers)
 
