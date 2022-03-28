@@ -6,9 +6,13 @@ def main():
     poke_name = argv[1]
     poke_info = get_pokemon_info(poke_name)
     if poke_info:
-        print("Abilities: ", poke_info["abilities"])
-        
+        pastebin_strings = get_pastebin_strings(poke_info)
+        pass
 
+def get_pastebin_strings(poke_dict):
+    title = poke_dict + "'s Abilities:"
+    body_text = "Abilities: ", poke_info["abilities"]
+    return(body_text)
 
 def get_pokemon_info(poke_name):
     print("Getting Pokemon information...", end="")
